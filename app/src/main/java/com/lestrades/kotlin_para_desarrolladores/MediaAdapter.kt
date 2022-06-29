@@ -32,6 +32,10 @@ class MediaAdapter(private val items : List<MediaItem>) : RecyclerView.Adapter<M
         fun bind(mediaItem: MediaItem){
             title.text = mediaItem.title
             Glide.with(thumb).load(mediaItem.url).into(thumb)
+
+            itemView.setOnClickListener {
+                toast(mediaItem.title)
+            }
         }
     }
 }

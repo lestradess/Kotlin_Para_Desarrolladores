@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         val recycler: RecyclerView = findViewById(R.id.recycler)
         recycler.adapter = MediaAdapter(getItems())
+
+        recycler.setOnClickListener { toast("Hello") }
     }
-    private fun toast(message:String){
-        Toast.makeText(this,message, Toast.LENGTH_LONG).show()
-    }
+
 }
