@@ -12,9 +12,10 @@ class MediaAdapter(private val items : List<MediaItem>) : RecyclerView.Adapter<M
 
     //Se llama para crear una nueva tarjeta. Infla la vista.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.view_media_item,parent,false)
+//        val view = LayoutInflater
+//            .from(parent.context)
+//            .inflate(R.layout.view_media_item,parent,false)
+        val view = parent.inflate(R.layout.view_media_item)
         return ViewHolder(view)
     }
     //Asignamos los valores a esa tarjeta
@@ -32,6 +33,7 @@ class MediaAdapter(private val items : List<MediaItem>) : RecyclerView.Adapter<M
         fun bind(mediaItem: MediaItem){
             title.text = mediaItem.title
             Glide.with(thumb).load(mediaItem.url).into(thumb)
+
 
             itemView.setOnClickListener {
                 toast(mediaItem.title)
