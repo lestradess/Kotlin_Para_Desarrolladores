@@ -25,16 +25,19 @@ class MediaAdapter(private val items : List<MediaItem>) : RecyclerView.Adapter<M
     }
     //Devuelve el número de items que tiene la lista.
     override fun getItemCount(): Int = items.size
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         private val title :TextView = view.findViewById(R.id.mediaTitle)
         private val thumb : ImageView = view.findViewById(R.id.mediaThumb)
+        private val videoIndicator: ImageView = view.findViewById(R.id.mediaVideoIndicator)
 
         fun bind(mediaItem: MediaItem){
             title.text = mediaItem.title
-
             thumb.loadUrl(mediaItem.url)
-
+            videoIndicator.visibility = when (mediaItem.type){
+                MediaItem.Type.PHOTO -> View.GONE
+                MediaItem.Type.VIDEO -> View.VISIBLE
+            }
             itemView.setOnClickListener {
                 toast(mediaItem.title)
             }

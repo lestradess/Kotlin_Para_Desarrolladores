@@ -1,3 +1,7 @@
 package com.lestrades.kotlin_para_desarrolladores
 
-class MediaItem (val title: String, val url:String)
+import java.lang.reflect.Type
+
+data class MediaItem (val title: String, val url:String, val type :Type){
+    enum class Type {PHOTO,VIDEO}
+}
