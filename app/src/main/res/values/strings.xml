@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Kotlin_Para_Desarrolladores</string>
+    <string name="all">all</string>
+    <string name="photos">photos</string>
+    <string name="videos">videos</string>
 </resources>

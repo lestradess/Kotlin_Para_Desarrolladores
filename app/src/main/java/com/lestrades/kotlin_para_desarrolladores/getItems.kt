@@ -1,8 +1,10 @@
 package com.lestrades.kotlin_para_desarrolladores
 
+import androidx.annotation.WorkerThread
 import com.lestrades.kotlin_para_desarrolladores.MediaItem.*
+import kotlin.random.Random
 
-fun getItems():List<MediaItem> = listOf(
+fun getItems2():List<MediaItem> = listOf(
     MediaItem("Title 1", "https://placekitten.com/200/200?image=1", Type.PHOTO),
     MediaItem("Title 2", "https://placekitten.com/200/200?image=2", Type.VIDEO),
     MediaItem("Title 3", "https://placekitten.com/200/200?image=3", Type.PHOTO),
@@ -14,3 +16,15 @@ fun getItems():List<MediaItem> = listOf(
     MediaItem("Title 9", "https://placekitten.com/200/200?image=9", Type.VIDEO),
     MediaItem("Title 10", "https://placekitten.com/200/200?image=10", Type.PHOTO),
 )
+
+
+object MediaProvider{
+    @WorkerThread
+    fun getItems(): List<MediaItem> {
+        Thread.sleep(2000)
+        return (1..10).map {
+            MediaItem("Title $it","https://placekitten.com/200/200?image=$it",
+                if (Random.nextBoolean()) Type.VIDEO else Type.PHOTO)
+        }
+    }
+}
