@@ -90,8 +90,10 @@ fun test(viewGroup: ViewGroup){
 val ViewGroup.tamanio: Int get() = childCount
 // Corrutinas
 fun corrutina(viewGroup: ViewGroup){
-
     GlobalScope.launch (Dispatchers.Main){
-
     }
+}
+fun nulos(){
+    val x:Int? = null
+    val l: Long? = x?.toLong() ?: 0
 }
